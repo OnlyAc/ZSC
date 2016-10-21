@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>登录页面</title>
+		<style>
+			body {
+				background: rgb(255,235,193);
+			}
+			#juz {
+				width: 300px;
+				margin: 0 auto;
+			}
+			div {
+				font-family: "微软雅黑";
+				color: #0F0F0F;
+				font-size: 14px;
+				margin: 10px 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="juz">
+			<h1>用户登录</h1>
+			<hr />
+			<form action="" method="get">
+				<div class="zhanghao">
+					帐号：<input type="text" />
+				</div>
+				<div class="mima">
+					密码：<input type="password" />
+				</div>
+				<input class="yangs" type="submit" value="登录"/>
+				<input class="yangs" type="reset" value="清空"/>
+				<input class="yangs" id="fanh" type="button" value="返回"/>
+			</form>
+		</div>
+		
+		
+		
+		
+		
+		<script src="../bower/bower_components/jquery/dist/jquery.min.js"></script>
+		<script type="text/javascript">
+			$('#fanh').on('click', function() {
+				location.href='new-lianx.html';
+			})
+		</script>
+	</body>
+</html>
