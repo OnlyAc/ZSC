@@ -37,9 +37,9 @@ $sql = "select * from reg_login where username='$username' and password='$passwo
 $user = $db -> rawQuery($sql);
 
 if (empty($user)) {
-    echo '登录失败，请<a href="../regLoginDemo/login.html">重试</a>';
+    echo '登录失败，请<a href="../lianx/new-dengl.html">重试</a>';
 } else {
-    echo '<script>location.href="../regLoginDemo/main.html";</script>';
+    echo '<script>location.href="../lianx/new-dlcg.html";</script>';
 }
 
 ?>

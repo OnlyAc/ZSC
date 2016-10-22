@@ -23,42 +23,43 @@
 		<div id="juz">
 			<h1>用户注册</h1>
 			<hr />
-			<form action="" method="get">
+			<form action="../api/reg_login_insert.php" method="get">
 				<div>
-					帐号：<input type="text" />
+					帐号：<input type="text" name="username"/>
 				</div>
 				<div>
-					密码：<input type="password" />
+					密码：<input type="password" name="password"/>
 				</div>
 				<div>
-					邮箱：<input type="email" />
+					邮箱：<input type="email" name="email"/>
 				</div>
 				<div>
-					性别：<input type="radio" name="danxuan"/>男
-					<input type="radio" name="danxuan"/>女
+					性别：
+					<lable>男</lable><input type="radio" name="gender" value="男"/>
+					<lable>女</lable><input type="radio" name="gender" value="女"/>
 				</div>
 				<div>
 					学历：
-					<select name="">
-						<option value="">研究生</option>
-						<option value="">本科</option>
-						<option value="">大专</option>
+					<select name="edu">
+						<option value="研究生">研究生</option>
+						<option value="本科">本科</option>
+						<option value="大专">大专</option>
 					</select>
 				</div>
 				<div>
 					简介：
 					<br />
-					<textarea name="" rows="5" cols="30"></textarea>
+					<textarea name="desc" rows="5" cols="30"></textarea>
 				</div>
 				<div>
 					爱好：
-					<input type="checkbox" />旅游
-					<input type="checkbox" />跑步
-					<input type="checkbox" />音乐
-					<input type="checkbox" />睡觉
+					<lable>旅游</lable><input value="旅游" name="hobbies[]" type="checkbox" />
+					<lable>音乐</lable><input value="音乐" name="hobbies[]" type="checkbox" />
+					<lable>跑步</lable><input value="跑步" name="hobbies[]" type="checkbox" />
+					<lable>睡觉</lable><input value="睡觉" name="hobbies[]" type="checkbox" />
 				</div>
 				<div>
-					照片：<input type="file" />
+					照片：<input name="pic" type="file" />
 				</div>
 				<input type="submit" value="注册"/>
 				<input type="reset" value="清空"/>

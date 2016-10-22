@@ -17,22 +17,34 @@
 				font-size: 14px;
 				margin: 10px 0;
 			}
+			img {
+				position: relative;
+				margin: 10px;
+			}
 		</style>
 	</head>
 	<body>
 		<div id="juz">
 			<h1>用户登录</h1>
 			<hr />
-			<form action="" method="get">
-				<div class="zhanghao">
-					帐号：<input type="text" />
+			<form action="../api/reg_login_enter.php" method="post">
+				<div>
+					帐号：<input type="text" name="username"/>
 				</div>
-				<div class="mima">
-					密码：<input type="password" />
+				<div>
+					密码：<input type="password" name="password"/>
 				</div>
-				<input class="yangs" type="submit" value="登录"/>
-				<input class="yangs" type="reset" value="清空"/>
-				<input class="yangs" id="fanh" type="button" value="返回"/>
+				<br />
+				<hr />
+				<div>
+					验证码：<input type="text" name="vcode"/>
+					<img title="点击刷新" src="vcode/captcha.php" alt="" align="absbottom" onclick="this.src='vcode/captcha.php?'+Math.random();"/>
+				</div>
+				<br />
+				<hr />
+				<input type="submit" value="登录"/>
+				<input type="reset" value="清空"/>
+				<input id="fanh" type="button" value="返回"/>
 			</form>
 		</div>
 		
