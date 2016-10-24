@@ -16,6 +16,11 @@
 			.xuhao {
 				width: 50px;
 			}
+			#fanh {
+				width: 100px;
+				height: 30px;
+				margin: 20px 0 0 115px;
+			}
 		</style>
   	</head>
 	<body>
@@ -59,6 +64,9 @@
 				
 			</table>
 		</div>
+		<br />
+		<hr />
+		<input id="fanh" type="button" value="返回"/>
 		
 		
 		
@@ -72,10 +80,16 @@
 						uname = this.getAttribute('uname');
 					
 					if (confirm('确定要删除 “' + uname + '” 吗？')) {
-						location.href = '../api/reg_login_del.php
+						location.href = '../api/reg_login_del.php'
+//						?id=' + id + '&t=' + new Date().getTime();
 					}
 				});
 			}(window, document, jQuery);
+			
+			$('#fanh').on('click', function() {
+				location.href='new-lianx.html';
+			})
+			
 		</script>
 	</body>
 </html>

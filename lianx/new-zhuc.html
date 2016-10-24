@@ -23,7 +23,7 @@
 		<div id="juz">
 			<h1>用户注册</h1>
 			<hr />
-			<form action="../api/reg_login_insert.php" method="get">
+			<form action="../api/reg_login_insert.php" method="post">
 				<div>
 					帐号：<input type="text" name="username"/>
 				</div>
@@ -72,9 +72,11 @@
 		
 		<script src="../bower/bower_components/jquery/dist/jquery.min.js"></script>
 		<script type="text/javascript">
+		
 			$('#fanh').on('click', function() {
 				location.href='new-lianx.html';
 			})
+			
 		</script>
 	</body>
 </html>
