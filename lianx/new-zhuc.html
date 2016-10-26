@@ -5,6 +5,7 @@
 		<title>注册页面</title>
 		<style>
 			body {
+				font-family: "微软雅黑";
 				background: rgb(255,235,193);
 			}
 			#juz {
@@ -23,24 +24,25 @@
 		<div id="juz">
 			<h1>用户注册</h1>
 			<hr />
-			<form action="../api/reg_login_insert.php" method="post">
+			<form action="../api/reg_login_insert.php" method="post" onsubmit="return checkForm();">
 				<div>
-					帐号：<input type="text" name="username"/>
+					帐号：<input id="username" type="text" name="username"/>
 				</div>
 				<div>
-					密码：<input type="password" name="password"/>
+					密码：<input id="password" type="password" name="password"/>
 				</div>
 				<div>
 					邮箱：<input type="email" name="email"/>
 				</div>
 				<div>
 					性别：
-					<lable>男</lable><input type="radio" name="gender" value="男"/>
+					<lable>男</lable><input type="radio" name="gender" value="男" checked/>
 					<lable>女</lable><input type="radio" name="gender" value="女"/>
 				</div>
 				<div>
 					学历：
-					<select name="edu">
+					<select name="edu" id="edu">
+						<option value="0">请选择</option>
 						<option value="研究生">研究生</option>
 						<option value="本科">本科</option>
 						<option value="大专">大专</option>
@@ -49,9 +51,11 @@
 				<div>
 					简介：
 					<br />
-					<textarea name="desc" rows="5" cols="30"></textarea>
+					 <textarea id="desc" name="desc" cols="30" rows="5" onKeyDown="textCounter(desc,remLen,50);" onKeyUp="textCounter(desc,remLen,50);"></textarea>
+					 <br />
+					<input name="remLen" type="text" value="50" readonly="readonly" style="display: inline-block; width: 20px; background-color: rgb(255,235,193); border: none; font-family: '微软雅黑'; font-size: 14px;">/ <span style="font-size: 14px; ">50</span>
 				</div>
-				<div>
+				<div id="hobbies-wp">
 					爱好：
 					<lable>旅游</lable><input value="旅游" name="hobbies[]" type="checkbox" />
 					<lable>音乐</lable><input value="音乐" name="hobbies[]" type="checkbox" />
@@ -72,10 +76,78 @@
 		
 		<script src="../bower/bower_components/jquery/dist/jquery.min.js"></script>
 		<script type="text/javascript">
-		
+				
+			function checkForm() {
+				
+				var data = {
+		            username: $('#username').val(),
+		            password: $('#password').val(),
+		            email: $('input[name=email]').val(),
+		            hobbies: $('#hobbies-wp input[type=checkbox]')
+		    	};
+		       
+				var emailyz = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/,
+				
+					num = /^([a-z]|[A-Z])([a-z]|[A-Z]|[0-9]){6,10}$/;
+					
+//						  /^([0-9])([a-z]|[A-Z]|[0-9]){6,10}$/					
+//						  /^[a-zA-Z][0-9a-zA-Z]{6,10}$/
+//						 "\`~@#;,.!#$%^&*()+{}|\\:\"<>?-=/,\'"
+
+				
+				var fanhz = true;
+
+				if($.trim(data.username) == '') {
+		            alert('用户名不能为空！');
+		            return false;
+		       } else if(!num.test(data.username)) {
+					alert('请输入以字母开头的6-10位字母和数字组合')
+					return false;
+		       }
+
+		        if($.trim(data.password) == '') {
+		            alert('密码不能为空！');
+		            return false;
+		        }
+
+				if(!emailyz.test(data.email)) {
+			        alert('邮箱格式不正确！');
+			        return false;
+			   }
+			   
+				if($('#edu').val() == 0) {
+					alert('请选择学历')
+					return false;
+				}
+				
+				$.each(data.hobbies, function(i, item) {
+		            if(item.checked) {
+		                fanhz = false;
+		            }
+		        });
+			
+				if(fanhz) {
+		            alert('至少选择一个爱好！');
+				}
+				
+//				return false;
+			};
+
+			function textCounter(field, countfield, maxlimit) {
+				// 函数，3个参数，表单名字，表单域元素名，限制字符；
+				if (field.value.length > maxlimit) {
+					//如果元素区字符数大于最大字符数，按照最大字符数截断；
+					field.value = field.value.substring(0, maxlimit);
+					alert('最多只能输入50个字！');
+				} else {
+					//在记数区文本框内显示剩余的字符数；
+					countfield.value = maxlimit - field.value.length;
+				}
+			};
+			
 			$('#fanh').on('click', function() {
 				location.href='new-lianx.html';
-			})
+			});
 			
 		</script>
 	</body>

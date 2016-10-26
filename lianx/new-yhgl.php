@@ -80,8 +80,8 @@
 						uname = this.getAttribute('uname');
 					
 					if (confirm('确定要删除 “' + uname + '” 吗？')) {
-						location.href = '../api/reg_login_del.php'
-//						?id=' + id + '&t=' + new Date().getTime();
+						location.href = '../api/reg_login_del.php?id=' + id;
+//						+ '&t=' + new Date().getTime();
 					}
 				});
 			}(window, document, jQuery);

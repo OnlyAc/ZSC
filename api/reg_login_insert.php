@@ -15,12 +15,27 @@
 	$username = $_POST["username"];
     $password = $_POST["password"];
     $email = $_POST["email"];
-    $gender = $_POST["gender"];
+    @$gender = $_POST["gender"];
     $edu = $_POST["edu"];
     $desc = $_POST["desc"];
-    $hobbies = $_POST["hobbies"];
+    @$hobbies = $_POST["hobbies"];
     $pic = $_POST["pic"];
     // $now = date("Y-m-d h:i:s");
+
+    $db->where('username', $username, '=');
+    $user = $db->get('reg_login');
+
+//  if (empty($username)) {
+//      echo '用户名不能为空！';
+//      return;
+//  }
+//
+    if (!empty($user)) {
+        echo '用户名已经被占用，请换一个试试！';
+        return;
+    }
+
+//  die;
 
     $data = Array(
         "username" => $username,

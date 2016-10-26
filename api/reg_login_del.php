@@ -22,7 +22,7 @@
 
     if ($r > 0) {
         echo '删除成功！';
-        echo '<script>setTimeout(function() {location.href="../lianx/new-yhgl.php"}, 5000);</script>';
+        echo '<script>setTimeout(function() {location.href="../lianx/new-yhgl.php"}, 1000);</script>';
     } else {
         echo '删除失败';
     }
