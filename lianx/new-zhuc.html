@@ -92,19 +92,17 @@
 					
 //						  /^([0-9])([a-z]|[A-Z]|[0-9]){6,10}$/					
 //						  /^[a-zA-Z][0-9a-zA-Z]{6,10}$/
-//						 "\`~@#;,.!#$%^&*()+{}|\\:\"<>?-=/,\'"
 
-				
 				var fanhz = true;
 
 				if($.trim(data.username) == '') {
 		            alert('用户名不能为空！');
 		            return false;
-		       } else if(!num.test(data.username)) {
-					alert('请输入以字母开头的6-10位字母和数字组合')
+				} else if(!num.test(data.username)) {
+					alert('请输入以字母开头的6-10位字母和数字组合'); 
 					return false;
-		       }
-
+				}
+				
 		        if($.trim(data.password) == '') {
 		            alert('密码不能为空！');
 		            return false;
@@ -113,10 +111,10 @@
 				if(!emailyz.test(data.email)) {
 			        alert('邮箱格式不正确！');
 			        return false;
-			   }
+			  	}
 			   
 				if($('#edu').val() == 0) {
-					alert('请选择学历')
+					alert('请选择学历');
 					return false;
 				}
 				
