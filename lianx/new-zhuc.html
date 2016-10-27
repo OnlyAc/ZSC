@@ -18,6 +18,7 @@
 				font-size: 14px;
 				margin: 10px 0;
 			}
+			
 		</style>
 	</head>
 	<body>
@@ -36,8 +37,8 @@
 				</div>
 				<div>
 					性别：
-					<lable>男</lable><input type="radio" name="gender" value="男" checked/>
-					<lable>女</lable><input type="radio" name="gender" value="女"/>
+					<label>男<input type="radio" name="gender" value="男" checked/></label>
+					<label>女<input type="radio" name="gender" value="女"/></label>
 				</div>
 				<div>
 					学历：
@@ -57,10 +58,10 @@
 				</div>
 				<div id="hobbies-wp">
 					爱好：
-					<lable>旅游</lable><input value="旅游" name="hobbies[]" type="checkbox" />
-					<lable>音乐</lable><input value="音乐" name="hobbies[]" type="checkbox" />
-					<lable>跑步</lable><input value="跑步" name="hobbies[]" type="checkbox" />
-					<lable>睡觉</lable><input value="睡觉" name="hobbies[]" type="checkbox" />
+					<label>旅游<input value="旅游" name="hobbies[]" type="checkbox" /></label>
+					<label>音乐<input value="音乐" name="hobbies[]" type="checkbox" /></label>
+					<label>跑步<input value="跑步" name="hobbies[]" type="checkbox" /></label>
+					<label>睡觉<input value="睡觉" name="hobbies[]" type="checkbox" /></label>
 				</div>
 				<div>
 					照片：<input name="pic" type="file" />
@@ -74,8 +75,15 @@
 		
 		
 		
+		
+		
+		
 		<script src="../bower/bower_components/jquery/dist/jquery.min.js"></script>
 		<script type="text/javascript">
+		
+			$('#username').on('keyup', function() {
+				this.value = this.value.replace(/[^\w\.]/g,'');
+			});
 				
 			function checkForm() {
 				
@@ -89,9 +97,6 @@
 				var emailyz = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/,
 				
 					num = /^([a-z]|[A-Z])([a-z]|[A-Z]|[0-9]){6,10}$/;
-					
-//						  /^([0-9])([a-z]|[A-Z]|[0-9]){6,10}$/					
-//						  /^[a-zA-Z][0-9a-zA-Z]{6,10}$/
 
 				var fanhz = true;
 
@@ -126,9 +131,8 @@
 			
 				if(fanhz) {
 		            alert('至少选择一个爱好！');
+		            return false;
 				}
-				
-//				return false;
 			};
 
 			function textCounter(field, countfield, maxlimit) {
