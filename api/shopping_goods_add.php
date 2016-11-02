@@ -10,7 +10,7 @@
     $amount = $_GET["amount"];
     $classify = $_GET["classify"];
     $status = $_GET["status"];
-    $pic = $_GET["pic"];
+//	$pic = $_GET["pic"];
 	// $now = date("Y-m-d h:i:s");
 
 	$data = Array (
@@ -19,8 +19,8 @@
         "classify" => $classify,
         "status" => $status,
         "details" => $details,
-        "amount" => $amount,
-        "pic" => $pic
+        "amount" => $amount
+//      "pic" => $pic
     );
 
     $id = $db->insert ('goods', $data);
